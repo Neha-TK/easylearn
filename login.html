@@ -278,73 +278,18 @@ body{
 
     <!-- <script src="script.js"></script> -->
     <script>
-        function validateSignUp(event) {
-            event.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('signupName').value;
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
-            
-            // Name validation (letters only)
-            const nameRegex = /^[A-Za-z\s]+$/;
-            if (!nameRegex.test(name)) {
-                alert('Name should contain only letters');
-                return false;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return false;
-            }
-            
-            // Password validation (at least 8 characters)
-            if (password.length < 8) {
-                alert('Password must be at least 8 characters long');
-                return false;
-            }
-            
-            // If all validations pass, redirect to content.html
-            window.location.href = 'content.html';
-            return true;
-        }
-        
-        function validateSignIn(event) {
-            event.preventDefault();
-            
-            // Get form values
-            const email = document.getElementById('signinEmail').value;
-            const password = document.getElementById('signinPassword').value;
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return false;
-            }
-            
-            // Password validation (at least 8 characters)
-            if (password.length < 8) {
-                alert('Password must be at least 8 characters long');
-                return false;
-            }
-            
-            // If all validations pass, redirect to content.html
-            window.location.href = 'content.html';
-            return true;
-        }
-        
-        // Add event listeners for toggle buttons if needed
-        document.getElementById('signup').addEventListener('click', function() {
-            container.classList.add("right-panel-active");
+        const container = document.getElementById('container');
+        const registerBtn = document.getElementById('register');
+        const loginBtn = document.getElementById('login');
+
+        registerBtn.addEventListener('click', () => {
+            container.classList.add("active");
         });
-        
-        document.getElementById('signin').addEventListener('click', function() {
-            container.classList.remove("right-panel-active");
+
+        loginBtn.addEventListener('click', () => {
+            container.classList.remove("active");
         });
-        </script>
+    </script>
 </body>
 
 </html>
